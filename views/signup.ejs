@@ -1,0 +1,48 @@
+<%- include("./components/header") %>
+    <%- include("./components/nav") %>
+
+        <div class="container">
+            <div class="container pt-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <h2 class="text-center mb-4">Register Page</h2>
+                        <% if(alerts){ %>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Alert</strong>
+                                <%= alerts %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                            </div>
+                            <% } %>
+                                <form action="/signupUser" method="POST">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="firstName"
+                                            aria-describedby="emailHelp" name="firstName" placeholder="Enter Your First Name"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="lastName"
+                                            aria-describedby="emailHelp" name="lastName" placeholder="Enter Your Last Name"
+                                            required>
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Enter Your Email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" id="password" name="password1"
+                                            placeholder=" Enter Your Password" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" id="password" name="password2"
+                                            placeholder="Confirm Password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                                </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("./components/footer") %>

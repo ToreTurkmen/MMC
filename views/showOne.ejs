@@ -1,0 +1,74 @@
+<%- include('./components/header') %>
+    <%- include('./components/nav-login') %>
+
+        <div class="container mt-5">
+            <div class="card-header">
+                <% if (result) { %>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= result.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= result.message %>
+                    </p>
+                    <a href=/question/delete/<%=result._id%> class="btn btn-danger">Delete</a>
+                    <a href=/question/edit/<%=result._id%> class="btn btn-primary">Update</a>
+                </div>
+            </div>
+            <% } else { %>
+                There is no record
+                <% } %>
+        </div>
+
+        <div class="container pt-5">
+            <div class="container">
+                <form action="/add/<%= result._id%>/comment" method="POST">
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Add Comment</label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="username" placeholder="Enter your nickname" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="comment" class="form-control" id="comment" placeholder="Enter your answer"
+                            required></textarea>
+                    </div>
+                    <button class="btn btn-primary">Add Comment</button>
+                </form>
+            </div>
+        </div>
+        <ul>
+            <% if(result.comments.length> 0) { %>
+                <% result.comments.forEach( comment=> { %>
+                    <% console.log(comment) %>
+                       
+                        <div class="container mt-5">
+                            <div class="card-header">
+                                <%= comment.comment %>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= comment.username %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= comment.createdAt.toLocaleDateString() %>
+                                    </p>
+                                    <form action="/delete/<%= comment._id %>/comment" method="POST">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <% }) %>
+                            <% } %>
+        </ul>
+
+
+
+        <%- include('./components/footer') %>

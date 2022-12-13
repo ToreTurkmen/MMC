@@ -1,0 +1,15 @@
+body{
+  background-color: aqua;
+  height: 100%;
+}
+form{
+  margin: 10px;
+}
+
+.main-nav{
+  margin: 50px;
+}
+#mainLog {
+  display: flex;
+}
+

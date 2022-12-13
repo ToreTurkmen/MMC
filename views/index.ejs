@@ -1,0 +1,14 @@
+<%- include("./components/header") %>
+<% if(cookies){ %>
+<%- include("./components/nav-login") %> 
+<% } else { %>
+<%- include("./components/nav") %> 
+<% } %>
+<h1 class="text-center pt-5">Matrix Master Community</h1>
+
+
+<%- include("./components/askQuestion") %> 
+
+<%- include("./components/showResult") %> 
+
+<%- include("./components/footer") %>
